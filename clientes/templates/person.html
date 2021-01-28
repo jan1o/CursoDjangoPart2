@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <a href="{% url 'logout'%}"><button type="button">Sair</button> </a>
+
+    <ul>
+    {% for person in persons %}
+
+        <li>
+            {{ person.first_name }}
+            <a href="{% url 'persons_update' person.id %}">
+                <button type="button">
+                    Update
+                </button>
+            </a>
+            <a href="{% url 'persons_delete' person.id %}">
+                <button type="button">
+                    Deletar
+                </button>
+            </a>
+        </li>
+
+    {% endfor %}
+    </ul>
+    <br>
+    <a href="{% url 'persons_new' %}"><button type="button">Novo Cliente</button></a>
+</body>
+</html>
